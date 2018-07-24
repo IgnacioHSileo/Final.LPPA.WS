@@ -29,7 +29,7 @@ namespace DAL
             {
                 try
                 {
-                    //cnn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistroDV"].ConnectionString);
+                    
                     cnn = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=LPPA.TURNOS.FINAL.2018.v1;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
                     cnn.Open();
                 }
@@ -72,7 +72,7 @@ namespace DAL
                 CloseCn();
                 return tabla;
             }
-
+ 
             public int Write(string store, CommandType type, SqlParameter[] param)
             {
                 int retorno;

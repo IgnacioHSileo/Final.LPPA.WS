@@ -10,18 +10,16 @@ using NegocioService;
 
 namespace NegocioService
 {
-    public class TurnosService
-    {
+    public class HorariosService
+    { 
 
 
-        public static List<TurnosDTO> GetAll()
+        public static List<HorariosDTO> GetByDia(string Dia)
         {
-            List<TurnosDTO> ret = new List<TurnosDTO>();
-            List<TurnosBLL> turnos = TurnosDAL.GetAll();
+            List<HorariosDTO> ret = new List<HorariosDTO>();
+            List<HorariosBLL> turnos = HorarioDAL.GetByDia(Dia);
 
             return ret;
         }
-
-      
     }
 }

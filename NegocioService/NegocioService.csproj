@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\HorariosDTO.cs" />
     <Compile Include="DTO\TurnosDTO.cs" />
+    <Compile Include="HorariosService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TurnosService.cs" />
   </ItemGroup>

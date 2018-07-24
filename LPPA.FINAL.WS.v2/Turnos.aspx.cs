@@ -40,7 +40,7 @@ namespace LPPA.FINAL.WS.v1
         {
             string dia;
             dia = Cale.SelectedDate.ToShortDateString();
-            List<TurnosDTO> turnos = TurnosService.GetAll(dia);
+            List<HorariosDTO> turnos = HorariosService.GetAll(dia);
                 Cmboxhs.DataSource = turnos;
                 Cmboxhs.DataBind();
 

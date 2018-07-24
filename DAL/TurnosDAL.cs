@@ -20,33 +20,38 @@ namespace DAL
                                                                 DataAccess.CreateParameter("Medico", turnos.Medico),
                                                                 DataAccess.CreateParameter("Dia", turnos.Dia),
                                                                 DataAccess.CreateParameter("Hora", turnos.Hora) });
-                                                                //DataAccess.CreateParameter("Dv", registro.GetDV(Convert.ToString(registro.ID) +
-                                                                //                                                Convert.ToString(registro.Nombre) +
-                                                                //                                                C onvert.ToString(registro.Apellido) +
-                                                                //                                                Convert.ToString(registro.Email) +
-                                                                //                                                Convert.ToString(registro.Edad)))});
+                                                             
                 return ret;
             }
 
-        public static List<TurnosBLL> GetAll(string Dia)
+        public static List<TurnosBLL> GetAll()
         {
             List<TurnosBLL> turnos = new List<TurnosBLL>();
-            DataTable table = DataAccess.Instance.Read("Turnos_Select", CommandType.StoredProcedure,
-                                                        new SqlParameter[] { DataAccess.CreateParameter("Dia", Dia) });
-            //foreach (DataRow row in table.Rows) { registros.Add(Conv(row)); }
-            return turnos;
+            DataTable table = DataAccess.Instance.Read("Turnos_Select", CommandType.StoredProcedure);
+
+            foreach (DataRow row in table.Rows)
+            {
+                turnos.Add(ConvertRow(row));
+            }
+                return turnos;
         }
 
-        //private static TurnosBLL Conv(DataRow row)
-        //{
-        //    TurnosBLL turnos = null;
-        //    if (row != null)
-        //    {
-        //    turnos = new TurnosBLL();
-        //    turnos.DV = Int32.Parse(row[5].ToString());
-        //    }
-        //    return turnos;
-        //}
+
+        private static TurnosBLL ConvertRow(DataRow row)
+        {
+            TurnosBLL turnos = null;
+            if (row != null)
+            {
+                turnos = new TurnosBLL();
+                turnos.ID = Int32.Parse(row[0].ToString());
+                turnos.Paciente = row[1].ToString();
+                turnos.Medico = row[2].ToString();
+                turnos.Dia = row[3].ToString();
+                turnos.Hora = row[4].ToString();
+
+            }
+            return turnos;
+        }
     }
 }
 
